@@ -2,20 +2,13 @@ package lexer;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
-import testCode.TestCode;
+import testcode.TestCode;
 
 import java.util.List;
 
-class LexerTest {
+public class LexerTest extends TestCase {
 
     public void test() {
-        /*
-            public class HelloWorld {
-                public static void main(String... args) {
-                    System.out.println("Hello World");
-                }
-            }
-        */
         var expectedTokens = List.of(
                 new Token(TokenKind.PUBLIC, "public"),
                 new Token(TokenKind.CLASS, "class"),
@@ -46,8 +39,9 @@ class LexerTest {
                 new Token(TokenKind.EOF, "")
         );
         var lexer = new Lexer(TestCode.HELLO_WORLD.toCharArray());
-        for(Token expectedToken : expectedTokens) {
+        for (Token expectedToken : expectedTokens) {
             Assert.assertEquals(expectedToken, lexer.nextToken());
         }
     }
+
 }
