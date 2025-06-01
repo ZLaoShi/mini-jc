@@ -1,12 +1,10 @@
 package lexer;
 
-import lombok.experimental.Tolerate;
-
 public class Lexer {
 
-    private final char[] buf;
+    private final char[] buf; // 输入
 
-    private int pos;
+    private int pos; // 位置
 
     public Lexer(char[] buf) {
         this.buf = buf;
@@ -97,7 +95,6 @@ public class Lexer {
             default -> TokenKind.IDENTIFIER; 
         };
         return new Token(tk, text);
-
     }
 
     private void skipWhitespace() {
