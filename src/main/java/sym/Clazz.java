@@ -1,5 +1,6 @@
 package sym;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import type.ClassType;
@@ -8,16 +9,14 @@ public class Clazz implements Sym, ClassType {
     private Access access;
     private String name;
     private List<ClassType> superTypes;
-    private final List<Field> fields;
-    private final List<Method> methods;
+    private final List<Field> fields = new ArrayList<>();
+    private final List<Method> methods = new ArrayList<>();
     private final Pkg pkg;
 
-    public Clazz(Access access, String name, List<ClassType> superTypes, List<Field> fields, List<Method> methods, Pkg pkg) {
+    public Clazz(Access access, String name, List<ClassType> superTypes, Pkg pkg) {
         this.access = access;
         this.name = name;
         this.superTypes = superTypes;
-        this.fields = fields;
-        this.methods = methods;
         this.pkg = pkg;
         pkg.addClazz(this);
     }

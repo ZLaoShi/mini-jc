@@ -5,10 +5,11 @@ import java.util.function.Consumer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import sym.Method;
 
 @Data
 @AllArgsConstructor
-public class MethodDecl implements Decl{
+public class MethodDecl extends DeclBase<Method> {
     private List<Modifier> mods;
     private TypeNode retType;
     private String name;
